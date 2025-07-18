@@ -86,8 +86,8 @@ My name is Roseane Carreiro. I’m not a database expert, but I worked hard to u
 
 ## Contato / Contact
 
-- LinkedIn: [https://www.linkedin.com/in/roseanecarreiro](https://www.linkedin.com/in/roseanecarreiro)  
-- Email: roseane.carreiro@example.com  
+- LinkedIn: [https://www.linkedin.com/in/roseane-carreiro/)  
+- Email: Roseanecarreirom@gmail.com
 
 ---
 
