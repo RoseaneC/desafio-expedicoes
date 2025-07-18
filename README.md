@@ -1,98 +1,96 @@
-# README - Desafio Técnico SQLite e Python / Technical Challenge SQLite and Python
+# Desafio Técnico - Análise e Manipulação de Dados em SQLite e Python
+
+[![Python](https://img.shields.io/badge/python-3.13-blue?logo=python&style=for-the-badge)](https://www.python.org/)
+[![SQLite](https://img.shields.io/badge/SQLite-3.37.2-lightgrey?logo=sqlite&style=for-the-badge)](https://www.sqlite.org/index.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 ---
 
-## Sobre o Projeto / About the Project
+Olá! Eu sou **Roseane Carreiro** e este é meu repositório para o desafio técnico sobre banco de dados SQLite e Python.
 
-Este projeto é sobre entender e mexer em um banco de dados SQLite que simula o funcionamento de um laboratório de pesquisas ambientais. Meu objetivo foi aprender a fazer consultas SQL e inserir dados usando Python, mesmo sendo iniciante no assunto.
-
-This project is about understanding and working with a SQLite database that simulates the operations of an environmental research lab. My goal was to learn how to make SQL queries and insert data using Python, even though I’m a beginner in this area.
+> ⚠️ **Aviso:** Sou iniciante nessa área. Fiz o desafio pesquisando, tentando entender como funcionava e me esforçando para aprender.
 
 ---
 
-## O que eu consegui fazer / What I managed to do
+## Sobre o desafio
 
-- Buscar equipamentos que estão disponíveis para uso.  
-- Descobrir qual especialidade participou mais das expedições com coleta de amostras.  
-- Inserir uma nova expedição no banco, com os pesquisadores e as amostras, usando Python.  
-- Tentei garantir que não houvesse dados repetidos ao inserir pesquisadores e relacionar tudo corretamente.  
+Recebi uma base de dados chamada `expedicoes.db` que simula a operação de um laboratório de pesquisas ambientais. Ela contém informações sobre:
 
-- Find equipment that is available for use.  
-- Find out which specialty participated the most in expeditions with sample collections.  
-- Insert a new expedition into the database, with researchers and samples, using Python.  
-- Tried to make sure there were no duplicate data when inserting researchers and linking everything correctly.
-
----
-
-## Limitações e o que não consegui fazer / Limitations and What I Couldn’t Do
-
-Como o banco de dados já veio com um formato definido, não consegui implementar tudo que o desafio pediu, por exemplo:
-
-- Não existe uma tabela separada para "Locais", então o local da expedição fica como texto simples.  
-- Não tem uma tabela para registrar o uso dos equipamentos, então não foi possível registrar isso.  
-- A tabela de amostras não tem campo para resultados das análises.  
-- Também não existe campo para os papéis dos pesquisadores na expedição, então essa parte não foi feita.  
-
-Because the database came with a fixed format, I couldn’t do everything the challenge asked, for example:
-
-- There is no separate table for "Locations", so the expedition location is just plain text.  
-- There’s no table to register equipment usage, so I couldn’t add that.  
-- The samples table doesn’t have a field for analysis results.  
-- There is also no field for the roles of the researchers in the expedition, so I didn’t do that part.
+- Expedições científicas
+- Pesquisadores participantes
+- Locais de coleta
+- Equipamentos utilizados
+- Amostras coletadas
+- Uso dos equipamentos nas expedições
+- Participação dos pesquisadores nas expedições
 
 ---
 
-## Como usar / How to Use
+## Tabelas principais no banco de dados
 
-1. Tenha o Python 3 instalado.  
-2. Rode o arquivo `criar_dados.py` para criar o banco e os dados iniciais.  
-3. Rode o `main.py` para ver as consultas funcionando.  
-4. Rode o `inserir_expedicao.py` para adicionar a nova expedição pelo Python.  
-
-1. Have Python 3 installed.  
-2. Run `criar_dados.py` to create the database and initial data.  
-3. Run `main.py` to see the queries working.  
-4. Run `inserir_expedicao.py` to add the new expedition using Python.
-
----
-
-## Como o banco está organizado / How the Database Is Organized
-
-| Tabela          | Campos principais                  | O que significa                 |
-|-----------------|----------------------------------|-------------------------------|
-| Equipamentos    | id, nome, descricao, status      | Equipamentos disponíveis       |
-| Pesquisadores   | id, nome, especialidade          | Pessoas que participam          |
-| Expedicoes      | id, local (texto), data          | Expedições feitas              |
-| Amostras        | id, tipo, expedicao_id           | Amostras coletadas             |
-| ExpedicaoPesquisador | id, pesquisador_id, expedicao_id | Liga pesquisadores e expedições|
-
-| Table          | Main fields                      | What it means                  |
-|----------------|---------------------------------|-------------------------------|
-| Equipamentos    | id, name, description, status   | Available equipment            |
-| Pesquisadores   | id, name, specialty             | People who participate        |
-| Expedicoes      | id, location (text), date       | Expeditions done              |
-| Amostras        | id, type, expedition_id         | Samples collected             |
-| ExpedicaoPesquisador | id, researcher_id, expedition_id | Links researchers and expeditions|
+| Tabela              | Descrição                               |
+|---------------------|---------------------------------------|
+| `Expedicoes`        | Expedições realizadas                  |
+| `Pesquisadores`     | Pesquisadores participantes           |
+| `Locais`            | Locais de coleta                      |
+| `Equipamentos`      | Equipamentos utilizados                |
+| `Amostras`          | Amostras coletadas                     |
+| `UsoEquipamento`    | Uso dos equipamentos nas expedições   |
+| `ExpedicaoPesquisador` | Participação de pesquisadores nas expedições |
 
 ---
 
-## Sobre mim / About Me
+## Tarefas realizadas
 
-Meu nome é Roseane Carreiro. Não sou especialista em bancos de dados, mas me dediquei bastante para entender como funciona essa área, pesquisando e testando o que aprendi. Este desafio foi uma ótima oportunidade para praticar e aprender na prática.
+1. **Consulta SQL**: Quais equipamentos estão disponíveis para uso?  
+   Retorna todos os equipamentos cujo status seja "Disponível".
 
-My name is Roseane Carreiro. I’m not a database expert, but I worked hard to understand how this area works by researching and testing what I learned. This challenge was a great chance to practice and learn hands-on.
+2. **Consulta SQL**: Qual especialidade foi mais usada em expedições?  
+   Identifica a especialidade de pesquisador que mais participou das expedições, considerando os registros de amostras coletadas.
+
+3. **Python & SQL**: Inserção de uma nova expedição com papéis definidos  
+   - Insere uma nova expedição com local, datas, equipamentos, amostras, pesquisadores e seus papéis.  
+   - Cria registros novos somente se não existirem (evita duplicação).  
+   - Mantém integridade referencial entre tabelas.
 
 ---
 
-## Contato / Contact
+## Como rodar o projeto
 
-- LinkedIn: [https://www.linkedin.com/in/roseane-carreiro/)  
-- Email: Roseanecarreirom@gmail.com
+1. Garanta que tenha Python 3 instalado (recomendo a versão 3.13).  
+2. Instale as dependências com:  
+   ```bash
+   pip install -r requirements.txt
+   ```  
+3. Execute o script para criar os dados:  
+   ```bash
+   python criar_dados.py
+   ```  
+4. Execute o script principal para ver as consultas:  
+   ```bash
+   python main.py
+   ```  
+5. Para inserir a nova expedição, rode:  
+   ```bash
+   python inserir_expedicao.py
+   ```  
 
 ---
 
-## Badges
+## Aprendizados
 
-[![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python&logoColor=white)](https://www.python.org/)  
-[![SQLite](https://img.shields.io/badge/SQLite-3.39.0-lightgrey?logo=sqlite&logoColor=blue)](https://sqlite.org/)  
-[![Status](https://img.shields.io/badge/Status-In%20Progress-orange)](https://github.com/roseanecarreiro/expedicoes)  
+- Aprendi a usar SQLite para consultas e manipulação de dados.  
+- Usei Python para interagir com o banco, criando registros e evitando duplicação.  
+- Entendi melhor a importância de relacionar tabelas via IDs.  
+- Desenvolvi lógica para resolver problemas práticos no banco de dados.
+
+---
+
+## Contato
+
+Se quiser trocar uma ideia ou dar um feedback, me encontre no LINKEDIN:  
+[https://www.linkedin.com/in/roseane-carreiro/](https://www.linkedin.com/in/roseane-carreiro/)
+
+---
+
+Obrigado por ler! 🌟
